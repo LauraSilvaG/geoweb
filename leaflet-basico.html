@@ -33,6 +33,17 @@
                 attribution : "OSM"
                 });
                 capa1.addTo(map);
+                
+                var punto = L.circleMarker([41.3954, 2.16859],{
+                    color: '#ffffff',
+                    fillColor: '#00ff00',
+                    fillOpacity: 0.9,
+                    radius: 8
+             });
+    punto.addTo(map);
+    punto.bindPopup('Hola punto');
+    punto.openPopup();
+
             }
             </script>
                
