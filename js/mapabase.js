@@ -47,3 +47,4 @@ function init() {
     controlEscala = L.control.scale();
     controlEscala.addTo(map);
 } // fin funcion init
+
