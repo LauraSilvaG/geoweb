@@ -26,7 +26,7 @@
             var map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/laurasilvag/ckyiyclis4ebx14lej2azn8s3',
-                center: [2.16859, 41.3954],
+                center: [2.837, 41.972],
                 zoom: 13,
                 attributionControl: false,
                 hash: true
@@ -41,16 +41,16 @@
             }));
             
             map.on('load', function () {
-                map.addSource("viasciclables_source", {
+                map.addSource("constru_cementerio", {
                     type: "vector",
-                    url: "mapbox://laurasilvag.dlfebs6u" //poner mapbox://vuestro id
+                    url: "mapbox://laurasilvag.20ov04go" //poner mapbox://vuestro id
                 }); //fin map source
 
                 map.addLayer({
-                    id: "viasciclables",
+                    id: "cementerio",
                     type: "line",
-                    source: "viasciclables_source",
-                    'source-layer': "vias_ciclables-5gmbe1", //poner vuestro titulo capa
+                    source: "constru_cementerio",
+                    'source-layer': "cementerio-02y092", //poner vuestro titulo capa
                     paint:{
                         'line-color':"#00ff00",
                         "line-width":3
@@ -58,7 +58,7 @@
                 });
             });
 
-            map.on('click','viasciclables',function(e){
+            map.on('click','cementerio',function(e){
 
                 var text = "";
                 //console.info(e);
@@ -73,11 +73,11 @@
 
                 });
 
-                map.on('mouseenter', 'viasciclables', function() {
+                map.on('mouseenter', 'cementerio', function() {
                     map.getCanvas().style.cursor = 'pointer';                    
                 });
 
-                map.on('mouseleave', 'viasciclables', function() {
+                map.on('mouseleave', 'cementerio', function() {
                     map.getCanvas().style.cursor = '';                    
                 });
 
