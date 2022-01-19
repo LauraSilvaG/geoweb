@@ -55,8 +55,17 @@ function filtrarEdificios(valor) {
 
     document.getElementById("altura").innerHTML = "Más de  <b>" + valor + "</b> pisos";
 
+}//fin funcion
+
+function verEdificios(visible) {
+
+if(visible==true){
+    map.setLayoutProperty("edificios", "visibility", "visible");
+}else{
+    map.setLayoutProperty("edificios", "visibility", "none");
 }
-//fin funcion
+}
+
 function addPopupToMapEdificios(nombreCapa) {
 
     map.on('click', function (e) {

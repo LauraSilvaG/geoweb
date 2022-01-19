@@ -32,7 +32,11 @@
             map.addControl(
                 new MapboxGeocoder({
                 accessToken: mapboxgl.accessToken,
-                mapboxgl: mapboxgl
+                mapboxgl: mapboxgl,
+                placeholder: "Dirección",
+                collapsed: true,
+                bbox: [2.1066 , 41.3000 , 2.2536 , 41.4468],
+                zoom: 18
                 }));
 
             
@@ -50,6 +54,9 @@
 
     <body onload="init()">
     <div class="panelTopIzquierda">
+
+        <input onclick="verEdificios(this.checked)" type="checkbox" checked=true/> Edificios<br>
+        <hr>
 
         <label id="altura">Más de 0 pisos</label>
         <input  onChange="filtrarEdificios(this.value)" id="slider" type="range" min="1" max="50" step="1" value="0" />
