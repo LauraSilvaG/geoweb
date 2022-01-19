@@ -18,7 +18,7 @@ body {
     padding: 10px;
     font-size: 20px;
     color: #bf2626;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .panelTopIzquierda label{
@@ -53,7 +53,7 @@ body {
     padding: 10px;
     font-size:20px;
     color: #333333;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .panelTopIzquierda label{
@@ -62,5 +62,5 @@ body {
 
 .panelTopIzquierda input{
     cursor:pointer;
-    width: 95%;
+    width: 10%;
 }
