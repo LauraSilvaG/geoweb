@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Terremotos</title>
+    <meta charset='utf-8' />
+    <title>Terremotos</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='css/estilobase.css' rel='stylesheet' />
+    
+    <script src='js/utils.js'></script>
+    <script src='js/terremotos.js'></script>
+    <script src='js/placas.js'></script>
+
+    <script>
+        var map;
+        function init() {
+
+            mapboxgl.accessToken = "pk.eyJ1IjoibGF1cmFzaWx2YWciLCJhIjoiY2t5YnJjbXRqMDB5MTJ2cm1naGdrYmdicSJ9.-s8RTyx4MLl6pxwSXKpPnA";
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/dark-v10',
+                center: [9.746, 40.473],
+                zoom: 5.5,
+                hash: true,
+                pitch: 0,
+                attributionControl: false
+            });
+            map.addControl(new mapboxgl.AttributionControl({
+                compact: true
+            }));
+            map.addControl(new mapboxgl.NavigationControl()); 
+            
+            map.on("load", function () {
+
+                generarPeticionTerremotos();
+                addPopupToMap("terremotos");
+                addPlacas()
+
+            }); // fin load mapa
+
+            map.on("zoomend", function () {
+
+                generarPeticionTerremotos();
+            });
+
+            map.on("moveend", function () {
+
+                generarPeticionTerremotos();
+            });
+
+        } //fin init
+
+    </script>
+    </head>
+
+    <body onload="init()">
+        <div class="panelTopIzquierda">
+            Visor Terremotos: 
+            <hr>
+            <small>Magnitud:</small>
+            <label id="magnitude">Magnitud</label>
+            <input  onChange="generarPeticionTerremotos()" id="slider" type="range" min="3" max="10" step="1" value="0" />
+        </div>
+        <div id='map'></div>
+    </body>
+
+    </html>
