@@ -33,8 +33,23 @@
                 add3D("mapbox-dem"); 
                 addRutas();
                 addAccidentes();
+                rotarCamara(0);
 
             }); //fin onload
+
+            map.on("click",function(e){
+                finalRotarCamara()
+
+                });
+            map.on("zoomstart",function(e){
+                finalRotarCamara()
+
+                });  
+
+            map.on("zoomend",function(e){
+                rotarCamara(0);
+
+            }); 
 
         } // final init
     </script>
