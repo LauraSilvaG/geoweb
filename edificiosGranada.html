@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Edificios Granada</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='css/estilobase.css' rel='stylesheet' />
+
+    <script src='js/edificiosGranada.js'></script>
+    <script>
+        //Añadir vuestor token y/o estilo !!
+        var map;
+        function init() {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoibGF1cmFzaWx2YWciLCJhIjoiY2t5YnJjbXRqMDB5MTJ2cm1naGdrYmdicSJ9.-s8RTyx4MLl6pxwSXKpPnA';
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/dark-v10',
+                center: [37.1765, -3.59793],
+                zoom: 15,
+                attributionControl: false,
+                pitch: 45,
+                hash: true
+            });
+
+            map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+            map.addControl(new mapboxgl.NavigationControl());
+
+            map.on('load', function () {
+
+                addEdificiosCapa();
+
+
+            }); //fin onload
+
+        } // final init
+    </script>
+</head>
+
+<body onload="init()">
+
+    <div id="map"></div>
+</body>
+
+</html>
