@@ -6,6 +6,8 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
     <link href='css/estilobase.css' rel='stylesheet' />
 
     <script src='js/edificiosGranada.js'></script>
@@ -18,8 +20,8 @@
             map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/dark-v10',
-                center: [37.1765, -3.59793],
-                zoom: 15,
+                center: [-3.5999, 37.17558],
+                zoom: 16,
                 attributionControl: false,
                 pitch: 45,
                 hash: true
@@ -28,10 +30,21 @@
             map.addControl(new mapboxgl.AttributionControl({ compact: true }));
             map.addControl(new mapboxgl.NavigationControl());
 
+            map.addControl(
+                new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl,
+                //placeholder: "Dirección",
+                //collapsed: true,
+                //bbox: [2.1066 , 41.3000 , 2.2536 , 41.4468],
+                //zoom: 18
+                }));
+
             map.on('load', function () {
 
                 addEdificiosCapa();
 
+                addPopupToMapEdificios("edificios");
 
             }); //fin onload
 
@@ -40,8 +53,16 @@
 </head>
 
 <body onload="init()">
+    <div class="panelTopIzquierda">
 
-    <div id="map"></div>
-</body>
+        <input onclick="verEdificios(this.checked)" type="checkbox" checked=true/> Edificios<br>
+        <hr>
+
+        <label id="altura">Más de 0 pisos</label>
+        <input  onChange="filtrarEdificios(this.value)" id="slider" type="range" min="1" max="50" step="1" value="0" />
+    </div>    
+
+        <div id="map"></div>
+    </body>
 
 </html>
