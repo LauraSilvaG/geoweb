@@ -5,7 +5,15 @@ function addEdificiosCapa() {
         "url": "mapbox://laurasilvag.a8lin22g"  // Nuestro ID Tileset
 
     }); //fin map source
-
+    map.addLayer({
+        'id': 'sky',
+        'type': 'sky',
+        'paint': {
+            'sky-type': 'atmosphere',
+            'sky-atmosphere-sun': [0.0, 0.0],
+            'sky-atmosphere-sun-intensity': 15
+        }
+    });
 
     map.addLayer({
     "id": "edificios",
