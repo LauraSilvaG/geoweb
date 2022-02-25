@@ -21,22 +21,22 @@ function addEdificiosCapa() {
     "source": "edificios_source",
     "source-layer": "ed_granada-1on9vy", // Nuestro nombre Tileset
     "maxzoom": 21,
-    "minzoom": 15,
+    "minzoom": 10,
     "filter": [">", "numberOfFl", 0],
     "paint": {
         "fill-extrusion-color": [
             "interpolate", ["linear"], ["number", ["get", "numberOfFl"]],
             0, "#FFFFFF",
-            1, "#e6b03d",
-            3, "#e6b03d",
-            6, "#3de66d",
-            9, "#3de6b1",
-            12, "#22ecf0",
-            15, "#14b1fd",
-            20, "#3d73e6",
-            40, "#123a8f",
-            60, "#ce2f7e",
-            106, "#ff4d4d"
+            1, "#F4FA58",
+            3, "#DF3A01",
+            6, "#DF013A",
+            8, "#3de6b1",
+            9, "#22ecf0",
+            11, "#14b1fd",
+            14, "#3d73e6",
+            16, "#123a8f",
+            18, "#ce2f7e",
+            30, "#ff4d4d"
 
         ],
         "fill-extrusion-height": [
@@ -119,4 +119,20 @@ function verEdificios(visible) {
         });
     
     }
+
+
+    var animacion;
+    function rotarCamara(timestamp) {
+
+        rotacion =timestamp /100 ==360 ?0 : timestamp /100;
+        map.rotateTo(rotacion, { duration: 0 });
+
+        animacion = requestAnimationFrame(rotarCamara);
+    }
+
+
+    function finalRotarCamara() {
+
+        cancelAnimationFrame(animacion);
+    } 
 

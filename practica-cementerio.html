@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Mapbox básico</title>
+    <title>Cementerio Mapbox</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
@@ -27,7 +27,7 @@
                 container: 'map',
                 style: 'mapbox://styles/laurasilvag/ckyiyclis4ebx14lej2azn8s3',
                 center: [2.837575, 41.971636],
-                zoom: 19,
+                zoom: 18,
                 attributionControl: false,
                 pitch: 54,
                 hash: true
@@ -56,7 +56,9 @@
                         'line-color':"#00ff00",
                         "line-width":3
                     }
-                });
+                }
+                ,"poi-label"
+                );
             });
 
             map.on('click','cementerio',function(e){
@@ -80,7 +82,8 @@
 
                 map.on('mouseleave', 'cementerio', function() {
                     map.getCanvas().style.cursor = '';                    
-                });
+                }
+                );
 
         }
     </script>

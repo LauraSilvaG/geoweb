@@ -64,3 +64,30 @@ body {
     cursor:pointer;
     width: 10%;
 }
+.panelTopIzquierdaGranada {
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    width: 200px;
+    z-index: 1000;
+    background-color: rgba(223, 201, 201, 0.9);
+    padding: 10px;
+    font-size:20px;
+    color: #333333;
+    border-radius: 20px;
+}
+
+.panelTopIzquierdaGranada label{
+    font-size:0.85em;
+}
+
+.panelTopIzquierdaGranada input{
+    cursor:pointer;
+    width: 10%;
+}
+
+
+.panelTopIzquierdaGranada input[type=range]{
+    cursor:pointer;
+    width: 95%;
+}
